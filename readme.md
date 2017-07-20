@@ -1,3 +1,3 @@
-# Boilerplate Meteor Project
+# Notes App - Meteor Course
 
-This includes a basic react and auth setup.
+Basic notes app manager built throughout the Andrew Mead's Udemy course
