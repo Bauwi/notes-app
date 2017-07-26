@@ -53,7 +53,7 @@ export class Editor extends Component {
     const { title , body } = this.state
     if(note){
       return(
-        <div>
+        <div className="editor">
           <input
             value={title}
             placeholder='Untitled Note'
@@ -70,9 +70,11 @@ export class Editor extends Component {
       )
     }else {
       return (
-        <p>
-          {selectedNoteId ? 'Note not found' :'pick a note to get started'}
-        </p>
+        <div className="editor">
+          <p>
+            {selectedNoteId ? 'Note not found' :'pick a note to get started'}
+          </p>
+        </div>
       )
     }
   }
