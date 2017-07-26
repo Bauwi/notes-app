@@ -55,23 +55,29 @@ export class Editor extends Component {
       return(
         <div className="editor">
           <input
+            className="editor__title"
             value={title}
             placeholder='Untitled Note'
             onChange={this.handleTitleChange}
           />
           <textarea
+            className="editor__body"
             value={body}
             placeholder="Your note here"
             onChange={this.handleBodyChange}>
 
-            </textarea>
-          <button onClick ={this.handleRemoveNote}>Delete Note</button>
+          </textarea>
+            <div>
+              <button
+                className="button button--secondary"
+                onClick ={this.handleRemoveNote}>Delete Note</button>
+            </div>
         </div>
       )
     }else {
       return (
         <div className="editor">
-          <p>
+          <p className="editor__message">
             {selectedNoteId ? 'Note not found' :'pick a note to get started'}
           </p>
         </div>
