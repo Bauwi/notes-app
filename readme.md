@@ -15,13 +15,13 @@ meteor npm install
 meteor
 ```
 
-# Running the test
+## Running the test
 
-Running the tests is easy. All you have to do is run the following command and view the reporter at localhost port 4000 : 
+Running the tests is easy. All you have to do is run the following command and view the reporter at localhost port 4000 :
 ```
 npm test
 ```
 
-# Demo
+## Demo
 
 https://notes-manager-beauwie.herokuapp.com/
