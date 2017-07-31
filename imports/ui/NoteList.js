@@ -10,13 +10,28 @@ import NoteListHeader from './NoteListHeader'
 import NoteListItem from './NoteListItem'
 import NoteListEmptyItem from './NoteListEmptyItem'
 
-export const NoteList = (props) => {
 
-  const renderNotes = () => {
-    if(props.notes.length !== 0){
+export class NoteList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      search: ''
+    }
+    this.handleSearch = this.handleSearch.bind(this)
+  }
+
+  handleSearch (e) {
+    const search = e.target.value
+    this.setState({search})
+  }
+
+  renderNotes() {
+    if(this.props.notes.length !== 0){
       return(
-        props.notes.map(note => {
-          return <NoteListItem key={note._id} note={note} />
+        this.props.notes.map(note => {
+          if(note.title.toUpperCase().match(this.state.search.toUpperCase())){
+            return <NoteListItem key={note._id} note={note} />
+          }
         })
       )
     } else {
@@ -24,12 +39,33 @@ export const NoteList = (props) => {
     }
   }
 
-  return (
-    <div className="item-list">
-      <NoteListHeader />
-      {renderNotes()}
-    </div>
-  )
+  render(){
+    return (
+      <div className="item-list">
+        <NoteListHeader />
+        <div className="item-list__search-bar">
+          <div>
+            <input
+              value={this.state.search}
+              type="text"
+              placeholder="search"
+              onChange={this.handleSearch}/>
+            <button
+              className="button button--secondary"
+              onClick={() => this.setState({search: ''})}>
+              {this.state.search ? 'X' : 'O'}
+            </button>
+
+
+
+          </div>
+        </div>
+        {this.renderNotes()}
+      </div>
+    )
+  }
+
+
 }
 
 NoteList.propTypes = {

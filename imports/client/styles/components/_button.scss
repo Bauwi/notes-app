@@ -29,6 +29,11 @@
   color: $button-secondary-color;
 }
 
+.button--warning:hover {
+  background-color: $button-warning-bg;
+  color: white;
+}
+
 .button--link-text {
   background: none;
   margin: 0;

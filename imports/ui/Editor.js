@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor'
 import { browserHistory } from 'react-router'
 
 import { Notes } from '../api/notes'
+import RemoveNote from './removeNote'
 
 export class Editor extends Component {
   constructor(props){
@@ -44,6 +45,7 @@ export class Editor extends Component {
   }
 
   handleRemoveNote() {
+
     this.props.call('notes.remove', this.props.note._id)
     this.props.browserHistory.push('/dashboard')
   }
@@ -68,9 +70,10 @@ export class Editor extends Component {
 
           </textarea>
             <div>
-              <button
+              <RemoveNote _id={selectedNoteId} />
+              {/* <button
                 className="button button--secondary"
-                onClick ={this.handleRemoveNote}>Delete Note</button>
+                onClick ={this.handleRemoveNote}>Delete Note</button> */}
             </div>
         </div>
       )
